@@ -63,7 +63,6 @@ namespace Barker.Calculator.Platform.UWP.ViewModels
         private void ExecuteAddOperator(object obj)
         {
             calculator.AddOperand((string) obj);
-            TxtResult = calculator.Result;
         }
         
         private void ExecuteAddNumber(object obj)

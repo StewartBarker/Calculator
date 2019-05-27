@@ -9,12 +9,13 @@ namespace Barker.Calculator.Model
         public string Result { get; set; } = "0";
         public string Expression { get; set; } = string.Empty;
 
-        private bool resetResult = false;
+        private bool resetExpression = false;
 
         public void AddNumber(string number)
         {
-            if (resetResult)
+            if (resetExpression)
             {
+                Result = "0";
                 Expression = number;
             }
             else
@@ -24,7 +25,7 @@ namespace Barker.Calculator.Model
             if (Result == "0" || Result == ErrorMessage)
             {
                 Result = number;
-                resetResult = false;
+                resetExpression = false;
             }
             else
             {
@@ -35,7 +36,7 @@ namespace Barker.Calculator.Model
         public void Delete()
         {
             Result = "0";
-            resetResult = true;
+            resetExpression = true;
             Expression = string.Empty;
         }
 
@@ -44,7 +45,7 @@ namespace Barker.Calculator.Model
             calculatorOperator = ValidatedOperand(calculatorOperator);
             Result = "0";
             Expression += $"{calculatorOperator}";
-            resetResult = false;
+            resetExpression = false;
         }
 
         private string ValidatedOperand(string calculatorOperator)
@@ -73,7 +74,7 @@ namespace Barker.Calculator.Model
             finally
             {
                 Result = "0";
-                resetResult = true;
+                resetExpression = true;
             }
         }
     }
