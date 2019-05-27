@@ -10,10 +10,9 @@ namespace Barker.Calculator.Platform.UWP.ViewModels
 {
     public class MainPageViewModel : MainPageViewModelBase
     {
+        #region instance vars
         private Model.Calculator calculator;
-
-        #region CommandVars
-
+        
         private DelegateCommand _btnEqualsClicked;
         public DelegateCommand BtnEqualsClicked
         {
@@ -53,6 +52,8 @@ namespace Barker.Calculator.Platform.UWP.ViewModels
             BtnDeleteClicked = new DelegateCommand(ExecuteDelete);
         }
 
+        #region Button Execute Methods
+
         private void ExecuteDelete(object obj)
         {
             calculator.Delete();
@@ -64,8 +65,7 @@ namespace Barker.Calculator.Platform.UWP.ViewModels
             calculator.AddOperand((string) obj);
             TxtResult = calculator.Result;
         }
-
-        #region Button Execute Methods
+        
         private void ExecuteAddNumber(object obj)
         {
             calculator.AddNumber((string)obj);
@@ -87,19 +87,5 @@ namespace Barker.Calculator.Platform.UWP.ViewModels
                 OnPropertyChanged("TxtResult");
             }
         }
-
-        //public void CalculateResult()
-        //{
-        //    TxtResult = calculator.CalculateExpression();            
-        //}
-
-        public void ProcessNumberButtonClick()
-        {
-            TxtResult = $"STEW clicked";
-        }
-
-
-
-
     }
 }

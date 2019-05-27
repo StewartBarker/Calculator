@@ -5,12 +5,13 @@ namespace Barker.Calculator.Model
 {
     public class Calculator
     {
+        private const string ErrorMessage = "ERROR";
         public string Result { get; set; } = "0";
         public string Expression { get; set; } = string.Empty;
 
         public void AddNumber(string number)
         {
-            if (Result == "0")
+            if (Result == "0" || Result == ErrorMessage)
             {
                 Result = number;
             }
@@ -29,8 +30,18 @@ namespace Barker.Calculator.Model
 
         public void AddOperand(string calculatorOperator)
         {
+            calculatorOperator = ValidatedOperand(calculatorOperator);
             Result = "0";
             Expression += $"{calculatorOperator}";
+        }
+
+        private string ValidatedOperand(string calculatorOperator)
+        {
+            if (calculatorOperator == "x")
+                return "*";
+            if (calculatorOperator == "÷")
+                return "/";
+            return calculatorOperator;
         }
 
         public string CalculateExpression()
@@ -38,18 +49,18 @@ namespace Barker.Calculator.Model
             try
             {
                 var EvaluatedExpression = Parser.Parse(Expression);
-                return EvaluatedExpression.ToString();
-                
+                Expression = EvaluatedExpression.ToString();
+                return EvaluatedExpression.ToString();                
             }
             catch(ParserInvalidExpressionException ex)
             {
                 // log ex
-                return "ERROR";                
+                Expression = string.Empty;                
+                return ErrorMessage;                
             }
             finally
             {
-                Result = "0";
-                Expression = string.Empty;
+                Result = "0";                
             }
         }
     }

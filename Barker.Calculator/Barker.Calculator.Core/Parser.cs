@@ -5,7 +5,7 @@
 
     public static class Parser
     {
-        public static double Parse(string Expression)
+        public static decimal Parse(string Expression)
         {
             if (!ValidExpression(Expression))
                 throw new ParserInvalidExpressionException(Expression);
@@ -62,34 +62,46 @@
                     value += s;
 
                     if (value.Split('.').Length > 2)
-                        throw new Exception("Invalid decimal.");
+                        throw new ParserInvalidExpressionException("Invalid decimal.");
 
                     if (i == (Expression.Length - 1))
                         stack.Push(value);
 
                 }
                 else
-                    throw new Exception("Invalid character.");
+                    throw new ParserInvalidExpressionException("Invalid character.");
 
             }
 
-            double result = 0;
+            decimal result = 0;
             while (stack.Count >= 3)
             {
+                try
+                {
+                    decimal right = Convert.ToDecimal(stack.Pop());
+                    string op = stack.Pop();
+                    decimal left = Convert.ToDecimal(stack.Pop());
 
-                double right = Convert.ToDouble(stack.Pop());
-                string op = stack.Pop();
-                double left = Convert.ToDouble(stack.Pop());
-
-                if (op == "+") result = left + right;                
-                else if (op == "-") result = left - right;
-                else if (op == "*") result = left * right;
-                else if (op == "/") result = left / right;
-
-                stack.Push(result.ToString());
+                    if (op == "+") result = left + right;
+                    else if (op == "-") result = left - right;
+                    else if (op == "*") result = left * right;
+                    else if (op == "/") result = left / right;
+                }
+                catch (DivideByZeroException ex)
+                {
+                    throw new ParserInvalidExpressionException("DIVIDE BY ZERO");
+                }
+                catch (Exception ex)
+                {
+                    throw new ParserInvalidExpressionException($"ERROR: {ex}");
+                }
+                finally
+                {
+                    stack.Push(result.ToString());
+                }
             }
 
-            return Convert.ToDouble(stack.Pop());
+            return Convert.ToDecimal(stack.Pop());
         }
 
         private static bool ValidExpression(string expression)

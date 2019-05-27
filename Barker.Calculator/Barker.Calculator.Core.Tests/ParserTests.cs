@@ -73,5 +73,26 @@ namespace Tests
             var result = Parser.Parse(expression);
             Assert.AreEqual(2.25, result);
         }
+
+        [Test]
+        public void DivideByZeroGeneratesException()
+        {
+            var expression = "5/0";
+            Assert.Throws<ParserInvalidExpressionException>(() => Parser.Parse(expression));
+        }
+
+        [Test]
+        public void CanDoComplexExpression()
+        {
+            var expression = "4+5+3-2";
+            Assert.AreEqual(10, Parser.Parse(expression));
+        }
+
+        [Test]
+        public void CanDoComplexExpressionMultiplicationCompletedFirst()
+        {
+            var expression = "4+5+3-2*2";
+            Assert.AreEqual(8, Parser.Parse(expression));
+        }
     }
 }
