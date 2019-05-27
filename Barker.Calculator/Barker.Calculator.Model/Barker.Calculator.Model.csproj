@@ -4,4 +4,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Barker.Calculator.Core\Barker.Calculator.Core.csproj" />
+  </ItemGroup>
+
 </Project>

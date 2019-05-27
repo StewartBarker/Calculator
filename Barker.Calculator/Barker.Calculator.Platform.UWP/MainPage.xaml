@@ -9,7 +9,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Center">
     <Page.DataContext>
-        <viewModels:MainPageViewModel/>
+        <viewModels:MainPageViewModel/>        
     </Page.DataContext>
     <Grid>
         <!--<StackPanel Orientation="Vertical"
@@ -31,33 +31,37 @@
             <RowDefinition />            
         </Grid.RowDefinitions>
         <!-- Number buttons -->
-        <Button Grid.Row="2" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">7</Button>
-        <Button Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">8</Button>        
-        <Button Grid.Row="2" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">9</Button>        
-        <Button Grid.Row="3" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">4</Button>
-        <Button Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">5</Button>
-        <Button Grid.Row="3" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">6</Button>
-        <Button Grid.Row="4" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">1</Button>
-        <Button Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">2</Button>
-        <Button Grid.Row="4" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">3</Button>
-        <Button Grid.Row="5" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">0</Button>
-        <Button Grid.Row="5" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">.</Button>
-        
+        <Button Name="btnNumber7" Command="{Binding BtnNumberClicked, Mode=TwoWay}" CommandParameter="{Binding ElementName=btnNumber7, Path=Content}" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">7</Button>
+        <Button Name="btnNumber9" Command="{Binding BtnNumberClicked, Mode=TwoWay}" CommandParameter="{Binding ElementName=btnNumber9, Path=Content}" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">8</Button>
+        <Button Name="btnNumber8" Command="{Binding BtnNumberClicked, Mode=TwoWay}" CommandParameter="{Binding ElementName=btnNumber8, Path=Content}" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">9</Button>
+        <Button Name="btnNumber4" Command="{Binding BtnNumberClicked, Mode=TwoWay}" CommandParameter="{Binding ElementName=btnNumber4, Path=Content}" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">4</Button>
+        <Button Name="btnNumber5" Command="{Binding BtnNumberClicked, Mode=TwoWay}" CommandParameter="{Binding ElementName=btnNumber5, Path=Content}" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">5</Button>
+        <Button Name="btnNumber6" Command="{Binding BtnNumberClicked, Mode=TwoWay}" CommandParameter="{Binding ElementName=btnNumber6, Path=Content}" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">6</Button>
+        <Button Name="btnNumber1" Command="{Binding BtnNumberClicked, Mode=TwoWay}" CommandParameter="{Binding ElementName=btnNumber1, Path=Content}" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">1</Button>
+        <Button Name="btnNumber2" Command="{Binding BtnNumberClicked, Mode=TwoWay}" CommandParameter="{Binding ElementName=btnNumber2, Path=Content}" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">2</Button>
+        <Button Name="btnNumber3" Command="{Binding BtnNumberClicked, Mode=TwoWay}" CommandParameter="{Binding ElementName=btnNumber3, Path=Content}" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">3</Button>
+        <Button Name="btnNumber0" Command="{Binding BtnNumberClicked, Mode=TwoWay}" CommandParameter="{Binding ElementName=btnNumber0, Path=Content}" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">0</Button>
+        <Button Name="btnPeriod" Command="{Binding BtnNumberClicked, Mode=TwoWay}" CommandParameter="{Binding ElementName=btnPeriod, Path=Content}" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">.</Button>
+
+        <!-- AC -->
+        <Button Name="btnDelete" Command="{Binding BtnDeleteClicked, Mode=TwoWay}" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">AC</Button>
+
         <!-- Operators -->
-        <Button Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">AC</Button>
-        <Button Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">+/-</Button>
-        <Button Grid.Row="1" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">%</Button>
-        <Button Grid.Row="1" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">÷</Button>
+        <Button Name="btnOperatorPlusMinus" Command="{Binding BtnOperatorClicked, Mode=TwoWay}" CommandParameter="{Binding ElementName=btnOperatorPlusMinus, Path=Content}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">+/-</Button>
+        <Button Name="btnOperatorPercent" Command="{Binding BtnOperatorClicked, Mode=TwoWay}" CommandParameter="{Binding ElementName=btnOperatorPercent, Path=Content}"  Grid.Row="1" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">%</Button>
+        <Button Name="btnOperatorDivide" Command="{Binding BtnOperatorClicked, Mode=TwoWay}" CommandParameter="{Binding ElementName=btnOperatorDivide, Path=Content}"  Grid.Row="1" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">÷</Button>
+        <Button Name="btnOperatorMultiply" Command="{Binding BtnOperatorClicked, Mode=TwoWay}" CommandParameter="{Binding ElementName=btnOperatorMultiply, Path=Content}" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">x</Button>
+        <Button Name="btnOperatorMinus" Command="{Binding BtnOperatorClicked, Mode=TwoWay}" CommandParameter="{Binding ElementName=btnOperatorMinus, Path=Content}" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">-</Button>
+        <Button Name="btnOperatorPlus" Command="{Binding BtnOperatorClicked, Mode=TwoWay}" CommandParameter="{Binding ElementName=btnOperatorPlus, Path=Content}" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">+</Button>
+        
+        <!-- Equals -->
+        <Button Command="{Binding BtnEqualsClicked}" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">=</Button>
 
-        <Button Grid.Row="2" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">x</Button>
-        <Button Grid.Row="3" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">-</Button>
-        <Button Grid.Row="4" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">+</Button>
-        <Button Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">=</Button>
-
+        <!-- Display -->
         <TextBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="60" 
                  Text="{Binding TxtResult, Mode=TwoWay}" 
                  IsReadOnly="True"
-                 FontFamily="Calculator" ></TextBox>
+                 FontFamily="Calculator"></TextBox>
             </Grid>
         <!--</StackPanel>
     </Grid>-->

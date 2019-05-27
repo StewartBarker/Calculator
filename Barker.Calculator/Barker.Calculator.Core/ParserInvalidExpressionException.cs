@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Barker.Calculator.Core
 {
     [Serializable]
-    internal class ParserInvalidExpressionException : Exception
+    public class ParserInvalidExpressionException : Exception
     {
         public ParserInvalidExpressionException()
         {
