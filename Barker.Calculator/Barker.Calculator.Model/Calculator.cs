@@ -9,22 +9,33 @@ namespace Barker.Calculator.Model
         public string Result { get; set; } = "0";
         public string Expression { get; set; } = string.Empty;
 
+        private bool resetResult = false;
+
         public void AddNumber(string number)
         {
+            if (resetResult)
+            {
+                Expression = number;
+            }
+            else
+            {
+                Expression += number;
+            }
             if (Result == "0" || Result == ErrorMessage)
             {
                 Result = number;
+                resetResult = false;
             }
             else
             {
                 Result += number;
-            }
-            Expression += $"{number}";
+            }                    
         }
 
         public void Delete()
         {
             Result = "0";
+            resetResult = true;
             Expression = string.Empty;
         }
 
@@ -33,6 +44,7 @@ namespace Barker.Calculator.Model
             calculatorOperator = ValidatedOperand(calculatorOperator);
             Result = "0";
             Expression += $"{calculatorOperator}";
+            resetResult = false;
         }
 
         private string ValidatedOperand(string calculatorOperator)
@@ -50,7 +62,7 @@ namespace Barker.Calculator.Model
             {
                 var EvaluatedExpression = Parser.Parse(Expression);
                 Expression = EvaluatedExpression.ToString();
-                return EvaluatedExpression.ToString();                
+                return EvaluatedExpression.ToString("0.######");                
             }
             catch(ParserInvalidExpressionException ex)
             {
@@ -60,7 +72,8 @@ namespace Barker.Calculator.Model
             }
             finally
             {
-                Result = "0";                
+                Result = "0";
+                resetResult = true;
             }
         }
     }
