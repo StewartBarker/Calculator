@@ -58,10 +58,10 @@
         <Button Command="{Binding BtnEqualsClicked}" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">=</Button>
 
         <!-- Display -->
-        <Grid Grid.ColumnSpan="4" BorderBrush="#FFFDFDFD" FocusVisualPrimaryBrush="{x:Null}">
-        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="80" 
+        <Grid Grid.ColumnSpan="4" BorderBrush="#FFFDFDFD" FocusVisualPrimaryBrush="{x:Null}" Background="Black">
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="100" 
                  Text="{Binding TxtResult, Mode=TwoWay}"                  
-                 FontFamily="Calculator" AllowFocusOnInteraction="False"/>
+                 FontFamily="Assets/Fonts/Calculator.ttf#Calculator" AllowFocusOnInteraction="False" Foreground="#FF30B623"/>
         </Grid>
     </Grid>
         <!--</StackPanel>
