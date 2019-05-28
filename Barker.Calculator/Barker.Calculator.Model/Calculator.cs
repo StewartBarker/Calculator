@@ -69,7 +69,7 @@ namespace Barker.Calculator.Model
             catch(Exception ex)
             {
                 // log ex
-                Expression = string.Empty;                
+                Expression = string.Empty;
                 return ErrorMessage;                
             }
             finally

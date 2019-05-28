@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using Model = Barker.Calculator.Model;
-
-namespace Barker.Calculator.Forms.ViewModels
+﻿namespace Barker.Calculator.Forms.ViewModels
 {
     public class MainPageViewModel : MainPageViewModelBase
     {

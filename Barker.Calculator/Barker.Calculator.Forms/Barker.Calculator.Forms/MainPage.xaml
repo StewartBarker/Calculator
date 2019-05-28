@@ -41,7 +41,7 @@
                 <RowDefinition />
                 <RowDefinition />
             </Grid.RowDefinitions>
-            
+
             <!-- Number buttons -->
             <Button Style="{StaticResource calculatorNumberButtonStyle}" x:Name="btnNumber7" Command="{Binding BtnNumberClicked, Mode=TwoWay}" CommandParameter="{Binding Path=Text, Source={Reference btnNumber7}}" Grid.Row="2" Grid.Column="0" Text="7"></Button>
             <Button Style="{StaticResource calculatorNumberButtonStyle}" x:Name="btnNumber9" Command="{Binding BtnNumberClicked, Mode=TwoWay}" CommandParameter="{Binding Path=Text, Source={Reference btnNumber9}}" Grid.Row="2" Grid.Column="1" Text="8"></Button>
@@ -56,11 +56,9 @@
             <Button Style="{StaticResource calculatorNumberButtonStyle}" x:Name="btnPeriod" Command="{Binding BtnNumberClicked, Mode=TwoWay}" CommandParameter="{Binding Path=Text, Source={Reference btnPeriod}}" Grid.Row="5" Grid.Column="1" Text="."></Button>
 
             <!-- AC -->
-            <Button Style="{StaticResource calculatorButtonStyle}" x:Name="btnDelete" Command="{Binding BtnDeleteClicked, Mode=TwoWay}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="AC"></Button>
+            <Button Style="{StaticResource calculatorButtonStyle}" x:Name="btnDelete" Command="{Binding BtnDeleteClicked, Mode=TwoWay}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Text="AC"></Button>
 
-            <!-- Operators -->
-            <!--<Button Name="btnOperatorPlusMinus" Command="{Binding BtnOperatorClicked, Mode=TwoWay}" CommandParameter="{Binding ElementName=btnOperatorPlusMinus, Path=Content}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">+/-</Button>-->
-            <Button Style="{StaticResource calculatorButtonStyle}" x:Name="btnOperatorPercent" Command="{Binding BtnOperatorClicked, Mode=TwoWay}" CommandParameter="{Binding Path=Text, Source={Reference btnOperatorPercent}}"  Grid.Row="1" Grid.Column="2" Text="%"></Button>
+            <!-- Operators -->            
             <Button Style="{StaticResource calculatorButtonStyle}" x:Name="btnOperatorDivide" Command="{Binding BtnOperatorClicked, Mode=TwoWay}" CommandParameter="{Binding Path=Text, Source={Reference btnOperatorDivide}}"  Grid.Row="1" Grid.Column="3" Text="÷"></Button>
             <Button Style="{StaticResource calculatorButtonStyle}" x:Name="btnOperatorMultiply" Command="{Binding BtnOperatorClicked, Mode=TwoWay}" CommandParameter="{Binding Path=Text, Source={Reference btnOperatorMultiply}}" Grid.Row="2" Grid.Column="3" Text="x"></Button>
             <Button Style="{StaticResource calculatorButtonStyle}" x:Name="btnOperatorMinus" Command="{Binding BtnOperatorClicked, Mode=TwoWay}" CommandParameter="{Binding Path=Text, Source={Reference btnOperatorMinus}}" Grid.Row="3" Grid.Column="3" Text="-"></Button>
