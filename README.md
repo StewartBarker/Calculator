@@ -18,8 +18,9 @@ Bonuses (optional)
 
 # Approach
 
-- Added Calculator Core project (.net standard class library) for parser and Core nunit test project
-- Added tests to assert standard expressions gave correct result from parser
+- Added Barker.Calculator.Core project (.net standard class library) for parser
+- Added Barker.Calculator.Core.Tests nunit test project
+- Added tests to assert parser gave correct result from expression
 - Added parser logic (initally hand coded but switched to using regular expression as was more robust)
 - Initially Added UWP project to experiment with designing form (as not used UWP before this)
 - Used MVVM approach by tying the form to the view model, and the view model utilised the Calculator model (in seperate project)
