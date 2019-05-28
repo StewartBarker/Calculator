@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:Barker.Calculator.Forms.ViewModels"
+             mc:Ignorable="d"
+             x:Class="Barker.Calculator.Forms.MainPage">
+    <ContentPage.BindingContext>
+        <viewModels:MainPageViewModel/>
+    </ContentPage.BindingContext>
+    <StackLayout>
+        <Grid BackgroundColor="#FF3A3333">
+            <Grid.Resources>
+                <Style x:Key="calculatorNumberButtonStyle" TargetType="Button">
+                    <Setter Property="BackgroundColor" Value="#7a8089" />
+                    <Setter Property="TextColor" Value="#FF3A5555" />
+                    <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                    <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                    <Setter Property="FontSize" Value="48" />
+                </Style>
+                <Style x:Key="calculatorButtonStyle" TargetType="Button">
+                    <Setter Property="BackgroundColor" Value="#FF3A5555" />
+                    <Setter Property="TextColor" Value="White" />
+                    <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                    <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                    <Setter Property="FontSize" Value="48" />
+                </Style>
+            </Grid.Resources>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            
+            <!-- Number buttons -->
+            <Button Style="{StaticResource calculatorNumberButtonStyle}" x:Name="btnNumber7" Command="{Binding BtnNumberClicked, Mode=TwoWay}" CommandParameter="{Binding Path=Text, Source={Reference btnNumber7}}" Grid.Row="2" Grid.Column="0" Text="7"></Button>
+            <Button Style="{StaticResource calculatorNumberButtonStyle}" x:Name="btnNumber9" Command="{Binding BtnNumberClicked, Mode=TwoWay}" CommandParameter="{Binding Path=Text, Source={Reference btnNumber9}}" Grid.Row="2" Grid.Column="1" Text="8"></Button>
+            <Button Style="{StaticResource calculatorNumberButtonStyle}" x:Name="btnNumber8" Command="{Binding BtnNumberClicked, Mode=TwoWay}" CommandParameter="{Binding Path=Text, Source={Reference btnNumber8}}" Grid.Row="2" Grid.Column="2" Text="9"></Button>
+            <Button Style="{StaticResource calculatorNumberButtonStyle}" x:Name="btnNumber4" Command="{Binding BtnNumberClicked, Mode=TwoWay}" CommandParameter="{Binding Path=Text, Source={Reference btnNumber4}}" Grid.Row="3" Grid.Column="0" Text="4"></Button>
+            <Button Style="{StaticResource calculatorNumberButtonStyle}" x:Name="btnNumber5" Command="{Binding BtnNumberClicked, Mode=TwoWay}" CommandParameter="{Binding Path=Text, Source={Reference btnNumber5}}" Grid.Row="3" Grid.Column="1" Text="5"></Button>
+            <Button Style="{StaticResource calculatorNumberButtonStyle}" x:Name="btnNumber6" Command="{Binding BtnNumberClicked, Mode=TwoWay}" CommandParameter="{Binding Path=Text, Source={Reference btnNumber6}}" Grid.Row="3" Grid.Column="2" Text="6"></Button>
+            <Button Style="{StaticResource calculatorNumberButtonStyle}" x:Name="btnNumber1" Command="{Binding BtnNumberClicked, Mode=TwoWay}" CommandParameter="{Binding Path=Text, Source={Reference btnNumber1}}" Grid.Row="4" Grid.Column="0" Text="1"></Button>
+            <Button Style="{StaticResource calculatorNumberButtonStyle}" x:Name="btnNumber2" Command="{Binding BtnNumberClicked, Mode=TwoWay}" CommandParameter="{Binding Path=Text, Source={Reference btnNumber2}}" Grid.Row="4" Grid.Column="1" Text="2"></Button>
+            <Button Style="{StaticResource calculatorNumberButtonStyle}" x:Name="btnNumber3" Command="{Binding BtnNumberClicked, Mode=TwoWay}" CommandParameter="{Binding Path=Text, Source={Reference btnNumber3}}" Grid.Row="4" Grid.Column="2" Text="3"></Button>
+            <Button Style="{StaticResource calculatorNumberButtonStyle}" x:Name="btnNumber0" Command="{Binding BtnNumberClicked, Mode=TwoWay}" CommandParameter="{Binding Path=Text, Source={Reference btnNumber0}}" Grid.Row="5" Grid.Column="0" Text="0"></Button>
+            <Button Style="{StaticResource calculatorNumberButtonStyle}" x:Name="btnPeriod" Command="{Binding BtnNumberClicked, Mode=TwoWay}" CommandParameter="{Binding Path=Text, Source={Reference btnPeriod}}" Grid.Row="5" Grid.Column="1" Text="."></Button>
+
+            <!-- AC -->
+            <Button Style="{StaticResource calculatorButtonStyle}" x:Name="btnDelete" Command="{Binding BtnDeleteClicked, Mode=TwoWay}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="AC"></Button>
+
+            <!-- Operators -->
+            <!--<Button Name="btnOperatorPlusMinus" Command="{Binding BtnOperatorClicked, Mode=TwoWay}" CommandParameter="{Binding ElementName=btnOperatorPlusMinus, Path=Content}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48">+/-</Button>-->
+            <Button Style="{StaticResource calculatorButtonStyle}" x:Name="btnOperatorPercent" Command="{Binding BtnOperatorClicked, Mode=TwoWay}" CommandParameter="{Binding Path=Text, Source={Reference btnOperatorPercent}}"  Grid.Row="1" Grid.Column="2" Text="%"></Button>
+            <Button Style="{StaticResource calculatorButtonStyle}" x:Name="btnOperatorDivide" Command="{Binding BtnOperatorClicked, Mode=TwoWay}" CommandParameter="{Binding Path=Text, Source={Reference btnOperatorDivide}}"  Grid.Row="1" Grid.Column="3" Text="÷"></Button>
+            <Button Style="{StaticResource calculatorButtonStyle}" x:Name="btnOperatorMultiply" Command="{Binding BtnOperatorClicked, Mode=TwoWay}" CommandParameter="{Binding Path=Text, Source={Reference btnOperatorMultiply}}" Grid.Row="2" Grid.Column="3" Text="x"></Button>
+            <Button Style="{StaticResource calculatorButtonStyle}" x:Name="btnOperatorMinus" Command="{Binding BtnOperatorClicked, Mode=TwoWay}" CommandParameter="{Binding Path=Text, Source={Reference btnOperatorMinus}}" Grid.Row="3" Grid.Column="3" Text="-"></Button>
+            <Button Style="{StaticResource calculatorButtonStyle}" x:Name="btnOperatorPlus" Command="{Binding BtnOperatorClicked, Mode=TwoWay}" CommandParameter="{Binding Path=Text, Source={Reference btnOperatorPlus}}" Grid.Row="4" Grid.Column="3" Text="+"></Button>
+
+            <!-- Equals -->
+            <Button Style="{StaticResource calculatorButtonStyle}" Command="{Binding BtnEqualsClicked}" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Text="="></Button>
+
+            <!-- Display -->
+            <Grid Grid.ColumnSpan="4" BackgroundColor="#FF3A3333">
+                <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" FontSize="128" 
+                 Text="{Binding TxtResult, Mode=TwoWay}"                  
+                 FontFamily="Assets/Fonts/Calculator.ttf#Calculator" TextColor="#FF2FA424"/>
+            </Grid>
+        </Grid>
+    </StackLayout>
+
+</ContentPage>

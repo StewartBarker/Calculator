@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Model = Barker.Calculator.Model;
 
-namespace Barker.Calculator.Platform.UWP.ViewModels
+namespace Barker.Calculator.Forms.ViewModels
 {
     public class MainPageViewModel : MainPageViewModelBase
     {

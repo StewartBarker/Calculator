@@ -78,7 +78,7 @@ namespace Tests
         public void DivideByZeroGeneratesException()
         {
             var expression = "5/0";
-            Assert.Throws<ParserInvalidExpressionException>(() => Parser.Parse(expression));
+            Assert.Throws<System.OverflowException>(() => Parser.Parse(expression));
         }
 
         [Test]
@@ -93,6 +93,13 @@ namespace Tests
         {
             var expression = "4+5+3-2*2";
             Assert.AreEqual(8, Parser.Parse(expression));
+        }
+
+        [Test]
+        public void NegativeSubtractionTest()
+        {
+            var expression = "4-8-2";
+            Assert.AreEqual(-6, Parser.Parse(expression));
         }
     }
 }

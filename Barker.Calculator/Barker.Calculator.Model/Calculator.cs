@@ -5,11 +5,12 @@ namespace Barker.Calculator.Model
 {
     public class Calculator
     {
-        private const string ErrorMessage = "ERROR";
+        private const string ErrorMessage = "ERROR";       
+
         public string Result { get; set; } = "0";
         public string Expression { get; set; } = string.Empty;
 
-        private bool resetExpression = false;
+        private bool resetExpression = false;     
 
         public void AddNumber(string number)
         {
@@ -60,12 +61,12 @@ namespace Barker.Calculator.Model
         public string CalculateExpression()
         {            
             try
-            {
+            {                
                 var EvaluatedExpression = Parser.Parse(Expression);
                 Expression = EvaluatedExpression.ToString();
                 return EvaluatedExpression.ToString("0.######");                
             }
-            catch(ParserInvalidExpressionException ex)
+            catch(Exception ex)
             {
                 // log ex
                 Expression = string.Empty;                
